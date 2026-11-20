@@ -1,0 +1,19 @@
+[
+  {
+    "property": "mod.sidecut.size",
+    "label": "Отступ сверху и снизу",
+    "type": "dropdown",
+    "defaultValue": "medium",
+    "options": [
+      { "label": "Малый (8%)", "value": "small" },
+      { "label": "Средний (14%)", "value": "medium" },
+      { "label": "Большой (22%)", "value": "large" }
+    ]
+  },
+  {
+    "property": "mod.sidecut.opaque",
+    "label": "Непрозрачный фон панели",
+    "type": "checkbox",
+    "defaultValue": true
+  }
+]

@@ -1,0 +1,37 @@
+/* Sidecut — компактная боковая панель Zen: срезана сверху и снизу, по центру */
+
+:root {
+  --sidecut-gap: 14vh;            /* отступ сверху и снизу (по умолчанию «medium») */
+  --sidecut-radius: 14px;
+}
+
+@media -moz-pref("mod.sidecut.size", "small")  { :root { --sidecut-gap: 8vh;  } }
+@media -moz-pref("mod.sidecut.size", "medium") { :root { --sidecut-gap: 14vh; } }
+@media -moz-pref("mod.sidecut.size", "large")  { :root { --sidecut-gap: 22vh; } }
+
+/* Только в компактном режиме (плавающая панель) */
+:root[zen-compact-mode="true"] #navigator-toolbox {
+  top: var(--sidecut-gap) !important;
+  bottom: var(--sidecut-gap) !important;
+  height: auto !important;
+  max-height: calc(100vh - 2 * var(--sidecut-gap)) !important;
+  margin-block: 0 !important;
+  border-radius: var(--sidecut-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Список вкладок скроллится внутри укороченной панели */
+:root[zen-compact-mode="true"] #navigator-toolbox #tabbrowser-arrowscrollbox,
+:root[zen-compact-mode="true"] #navigator-toolbox .zen-workspace-tabs-section {
+  min-height: 0 !important;
+}
+
+/* Опционально: непрозрачный фон, чтобы страница не просвечивала */
+@media -moz-pref("mod.sidecut.opaque") {
+  :root[zen-compact-mode="true"] #navigator-toolbox,
+  :root[zen-compact-mode="true"] #navigator-toolbox .zen-toolbar-background {
+    background-color: var(--zen-colors-primary, #1c1b22) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+}
