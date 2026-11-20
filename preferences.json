@@ -15,5 +15,17 @@
     "label": "Непрозрачный фон панели",
     "type": "checkbox",
     "defaultValue": true
+  },
+  {
+    "property": "mod.sidecut.fade",
+    "label": "Затухание вкладок у верхнего и нижнего края",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.sidecut.hide_scrollbar",
+    "label": "Скрыть полосу прокрутки (колесо работает)",
+    "type": "checkbox",
+    "defaultValue": true
   }
 ]
