@@ -1,7 +1,7 @@
 {
   "name": "Sidecut",
   "description": "Компактная панель Zen: срезана сверху и снизу и расположена по центру по вертикали.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "you",
   "style": "chrome.css",
   "preferences": "preferences.json",

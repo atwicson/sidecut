@@ -11,21 +11,23 @@
     ]
   },
   {
-    "property": "mod.sidecut.opaque",
-    "label": "Непрозрачный фон панели",
-    "type": "checkbox",
-    "defaultValue": true
-  },
-  {
-    "property": "mod.sidecut.fade",
-    "label": "Затухание вкладок у верхнего и нижнего края",
-    "type": "checkbox",
-    "defaultValue": true
-  },
-  {
     "property": "mod.sidecut.hide_scrollbar",
     "label": "Скрыть полосу прокрутки (колесо работает)",
-    "type": "checkbox",
-    "defaultValue": true
+    "type": "checkbox"
+  },
+  {
+    "property": "mod.sidecut.keep_resize",
+    "label": "Оставить изменение ширины панели в компактном режиме",
+    "type": "checkbox"
+  },
+  {
+    "property": "mod.sidecut.no_fade",
+    "label": "Отключить затухание вкладок у краёв",
+    "type": "checkbox"
+  },
+  {
+    "property": "mod.sidecut.see_through",
+    "label": "Полупрозрачный фон панели",
+    "type": "checkbox"
   }
 ]
