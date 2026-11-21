@@ -1,4 +1,4 @@
-/* Sidecut 1.2 — компактная панель Zen: срезана сверху и снизу, по центру */
+/* Sidecut 1.3 — компактная панель Zen: срезана сверху и снизу, по центру */
 
 :root {
   --sidecut-gap: 14vh;
@@ -18,13 +18,28 @@
   max-height: calc(100vh - 2 * var(--sidecut-gap)) !important;
   margin-block: 0 !important;
   border-radius: var(--sidecut-radius) !important;
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox .zen-toolbar-background,
 :root[zen-compact-mode="true"] #navigator-toolbox .zen-toolbar-background::before,
 :root[zen-compact-mode="true"] #navigator-toolbox .zen-toolbar-background::after {
   border-radius: var(--sidecut-radius) !important;
+}
+
+/* ---------- Левый отступ: панель прижата к краю окна ---------- */
+@media not -moz-pref("mod.sidecut.keep_left_gap") {
+  :root[zen-compact-mode="true"] #navigator-toolbox:not([zen-right-side="true"]) {
+    left: 0 !important;
+    margin-inline-start: 0 !important;
+    padding-inline-start: 0 !important;
+    --zen-compact-float: 0px;
+  }
+  :root[zen-compact-mode="true"] #navigator-toolbox:not([zen-right-side="true"]) #titlebar,
+  :root[zen-compact-mode="true"] #navigator-toolbox:not([zen-right-side="true"]) #zen-sidebar-top-buttons {
+    margin-inline-start: 0 !important;
+    padding-inline-start: 4px !important;
+  }
 }
 
 /* ---------- Ручка изменения ширины перекрывала полосу прокрутки ---------- */
@@ -45,6 +60,26 @@
 }
 
 /* ---------- Прокрутка списка вкладок ---------- */
+/* Вся цепочка контейнеров должна уметь сжиматься, иначе список просто обрезается */
+:root[zen-compact-mode="true"] #navigator-toolbox :is(
+  #titlebar, #TabsToolbar, #TabsToolbar-customization-target, #tabbrowser-tabs,
+  zen-workspaces, zen-workspace, .zen-workspace-tabs-section,
+  .zen-workspace-normal-tabs-section, #zen-tabbox-wrapper) {
+  min-height: 0 !important;
+  max-height: 100% !important;
+}
+/* Сам прокручиваемый элемент внутри arrowscrollbox */
+:root[zen-compact-mode="true"] #navigator-toolbox #tabbrowser-arrowscrollbox::part(scrollbox) {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+}
+:root[zen-compact-mode="true"] #navigator-toolbox .zen-workspace-normal-tabs-section,
+:root[zen-compact-mode="true"] #navigator-toolbox .zen-workspace-tabs-section {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
 :root[zen-compact-mode="true"] #navigator-toolbox #tabbrowser-tabs,
 :root[zen-compact-mode="true"] #navigator-toolbox #tabbrowser-arrowscrollbox,
 :root[zen-compact-mode="true"] #navigator-toolbox .zen-workspace-tabs-section,

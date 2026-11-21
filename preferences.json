@@ -5,9 +5,18 @@
     "type": "dropdown",
     "defaultValue": "medium",
     "options": [
-      { "label": "Малый (8%)", "value": "small" },
-      { "label": "Средний (14%)", "value": "medium" },
-      { "label": "Большой (22%)", "value": "large" }
+      {
+        "label": "Малый (8%)",
+        "value": "small"
+      },
+      {
+        "label": "Средний (14%)",
+        "value": "medium"
+      },
+      {
+        "label": "Большой (22%)",
+        "value": "large"
+      }
     ]
   },
   {
@@ -28,6 +37,11 @@
   {
     "property": "mod.sidecut.see_through",
     "label": "Полупрозрачный фон панели",
+    "type": "checkbox"
+  },
+  {
+    "property": "mod.sidecut.keep_left_gap",
+    "label": "Оставить левый отступ панели",
     "type": "checkbox"
   }
 ]
